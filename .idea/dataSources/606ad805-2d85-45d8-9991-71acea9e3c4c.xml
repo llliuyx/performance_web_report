@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="android_performance_test@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.3">
+    <root id="1"/>
+    <schema id="2" parent="1" name="android_performance_test">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="explorer"/>
+    <schema id="4" parent="1" name="explorer2"/>
+    <schema id="5" parent="1" name="firstdb"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="performance_test"/>
+    <schema id="10" parent="1" name="QA_Assist"/>
+    <schema id="11" parent="1" name="redmine"/>
+    <schema id="12" parent="1" name="redmine_development"/>
+    <schema id="13" parent="1" name="sys"/>
+    <schema id="14" parent="1" name="test"/>
+    <schema id="15" parent="1" name="test_smoke_test"/>
+    <table id="16" parent="2" name="perf_cases"/>
+    <table id="17" parent="2" name="perf_suites"/>
+    <table id="18" parent="2" name="perf_tasks"/>
+    <column id="19" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="20" parent="16" name="suite_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="21" parent="16" name="case_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="22" parent="16" name="case_chinese_name">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="23" parent="16" name="case_type">
+      <Position>5</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="24" parent="16" name="status">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="25" parent="16" name="result">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <index id="26" parent="16" name="suite_id">
+      <ColNames>suite_id</ColNames>
+    </index>
+    <key id="27" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="28" parent="16" name="perf_cases_ibfk_1">
+      <ColNames>suite_id</ColNames>
+      <RefSchemaName>android_performance_test</RefSchemaName>
+      <RefTableName>perf_suites</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="29" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="17" name="task_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="31" parent="17" name="suite_name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="32" parent="17" name="app_name">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="33" parent="17" name="app_version">
+      <Position>5</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="34" parent="17" name="pkg_name">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="35" parent="17" name="task_id">
+      <ColNames>task_id</ColNames>
+    </index>
+    <key id="36" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="37" parent="17" name="perf_suites_ibfk_1">
+      <ColNames>task_id</ColNames>
+      <RefSchemaName>android_performance_test</RefSchemaName>
+      <RefTableName>perf_tasks</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="38" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="39" parent="18" name="device_model">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="40" parent="18" name="device_serial">
+      <Position>3</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="41" parent="18" name="start_time">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="42" parent="18" name="end_time">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="43" parent="18" name="status">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="44" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

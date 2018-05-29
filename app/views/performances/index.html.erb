@@ -1,0 +1,29 @@
+<table class="table dataTables-example" >
+  <thead>
+  <tr>
+    <th class="col-md-1">task_id</th>
+    <th class="col-md-1">设备类型</th>
+    <th class="col-md-1">设备序列号</th>
+    <th class="col-md-2">开始时间</th>
+    <th class="col-md-2">结束时间</th>
+    <th class="col-md-1">状态</th>
+    <th class="col-md-1">测试报告</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% status_array = ["Success", "Fail"] %>
+  <% @perf_tasks.each do |task| %>
+    <tr>
+      <td><%= task.id %></td>
+      <td><%= task.device_model %></td>
+      <td><%= task.device_serial %></td>
+      <td><%= task.start_time %></td>
+      <td><%= task.end_time %></td>
+      <td><%= status_array[task.status] %></td>
+      <td>
+        <%= link_to "查看", performances_report_path(task_id: task.id) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
